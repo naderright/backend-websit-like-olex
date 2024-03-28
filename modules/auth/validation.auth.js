@@ -25,7 +25,7 @@ const forgotPass = {
     body:joi.object().required().keys({
         Email:joi.string().required().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
         newPassword:joi.string().required().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
-        cPassword: joi.string().valid(joi.ref('newPassword')).required(),
+        cNewPassword: joi.string().valid(joi.ref('newPassword')).required(),
         code:joi.string().max(10000).min(1000)
     })
 };

@@ -1,14 +1,14 @@
 const express = require('express');
 const path = require('path');
 const connectionDB = require('./DB/connectionDB');
-const router = require('./modules/Router.js');
+require('dotenv').config();
+const router = require('./modules/Router.js');''
 const app = express();
 const cors = require('cors');
 const { initIO } = require('./servises/socket');
 const userModel = require('./DB/models/userModel');
 const sendPDF = require('./sendPDF');
 
-require('dotenv').config();
 
 app.use(cors());
 app.use('/uploads', express.static(path.join(__dirname, './uploads')));

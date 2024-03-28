@@ -14,6 +14,7 @@ const signup = async (req, res) => {
         sendEmail(saveUser.Email, message);
         res.status(201).json({ message: 'success signup' });
     } catch (error) {
+        console.log(error);
         res.status(500).json({ message: 'catch err', error });
     }
 };

@@ -11,9 +11,11 @@ const user = require('express').Router();
 
 user.get('/',allUser)
 //admin
-user.delete('/delete/:id',auth(roleAccess.admin),validation(validUser.params),admin.deleteUser);
-user.patch('/softDelete/:id',auth(roleAccess.admin),validation(validUser.params),admin.softDelete);
-user.patch('/block/:id',auth(roleAccess.admin),validation(validUser.params),admin.BlockUser);
+user.delete('/admin/delete/:id',auth(roleAccess.admin),validation(validUser.params),admin.deleteUser);
+user.patch('/admin/softDelete/:id',auth(roleAccess.admin),validation(validUser.params),admin.softDelete);
+//extra
+user.patch('/admin/block/:id',auth(roleAccess.admin),validation(validUser.params),admin.BlockUser);
+
 
 //profile
 user.put('/updateEmail',auth(roleAccess.all),validation(validUser.updateEmail),profile.updateEmail);
